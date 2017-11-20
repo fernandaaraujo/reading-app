@@ -1,6 +1,6 @@
-import { categories } from './reducers/categories';
-import { post, posts, sortPosts } from './reducers/posts';
-import { comments, sortComments } from './reducers/comments';
+import { categories } from './categories';
+import { post, posts, sortPosts } from './posts';
+import { comments, sortComments } from './comments';
 
 import { combineReducers } from 'redux';
 
