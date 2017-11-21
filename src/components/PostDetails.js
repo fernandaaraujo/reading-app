@@ -8,17 +8,18 @@ import Post from './Post';
 
 class PostDetails extends Component {
   componentDidMount() {
-    const idPost = this.props.match.params.postId;
-    const post = this.props.posts.filter(post => post.id === idPost)[0];
-    
+    const { posts, match } = this.props;
+    const { postId } = match.params;
+    const post = posts.filter(post => post.id === postId)[0];
+
     this.props.getPostComments(post);
     this.props.getPost(post);
   }
 
   render() {
-    const { posts, comments } = this.props;
-    const idPost = this.props.match.params.postId;
-    const post = posts.filter(post => post.id === idPost)[0];
+    const { posts, comments, match } = this.props;
+    const { postId } = match.params;
+    const post = posts.find(post => post.id === postId);
 
     return (
       <div>
@@ -43,14 +44,7 @@ class PostDetails extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  const { post, posts, comments } = state;
-  return {
-    post,
-    posts,
-    comments
-  }
-}
+const mapStateToProps = ({ post, posts, comments }) => ({ post, posts, comments });
 
 function mapDispatchToProps(dispatch) {
   return {
