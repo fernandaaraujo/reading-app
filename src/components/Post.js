@@ -29,15 +29,16 @@ class Post extends Component {
           <p>{`Timestamp: ${new Date(actualPost.timestamp).toLocaleString()}`}</p>
           <p>{`Vote score: ${actualPost.voteScore}`}</p>
           <p>{`Author: ${actualPost.author}`}</p>
+          <p>{`Category: ${actualPost.category}`}</p>
           { isDetail &&
             <p>{`comments number: ${comments.length}`}</p>
           }
         </div>
         <div className='post-options'>
           { !isDetail &&
-            <Link to={`/posts/${actualPost.id}`}><button className="fa fa-search"></button></Link>
+            <Link to={`${actualPost.category}/posts/${actualPost.id}`}><button className="fa fa-search"></button></Link>
           }
-          <Link to={`/posts/${actualPost.id}/edit`}><button className='fa fa-pencil'></button></Link>
+          <Link to={`${actualPost.category}/posts/${actualPost.id}/edit`}><button className='fa fa-pencil'></button></Link>
           <button className='fa fa-thumbs-o-up' onClick={()=>updatePostVotes(actualPost, 'upVote')}></button>
           <button className='fa fa-thumbs-o-down' onClick={()=>updatePostVotes(actualPost, 'downVote')}></button>
           <button className='fa fa-trash-o' onClick={()=>deletePost(actualPost)}></button>

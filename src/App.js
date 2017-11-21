@@ -34,9 +34,9 @@ class App extends Component {
             />
           )} />
           <Route exact path={'/:category'} component={CategoryDetails} />
-          <Route exact path={'/posts/create'} component={CreatePost} />
-          <Route exact path={'/posts/:postId'} component={PostDetails} />
-          <Route exact path={'/posts/:postId/edit'} component={EditPost} />
+          <Route exact path={'/:category/posts/create'} component={CreatePost} />
+          <Route exact path={'/:category/posts/:postId'} component={PostDetails} />
+          <Route exact path={'/:category/posts/:postId/edit'} component={EditPost} />
           <Route exact path={'/comments/create'} component={CreateComment} />
           <Route exact path={'/comments/:commentId/edit'} component={EditComment} />
         </Switch>
