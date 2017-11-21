@@ -6,6 +6,8 @@ import * as actions from '../actions/posts';
 
 class CreatePost extends Component {
   addPost = (event) => {
+    event.preventDefaul();
+
     const post = serializeForm(event.target, { hash: true });
     const newPost = {
       id: Math.random().toString(36).substr(2, 16) + Math.random().toString(36).substr(2, 16),
