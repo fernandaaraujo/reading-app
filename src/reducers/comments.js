@@ -10,19 +10,21 @@
   SORT_TIMESTAMP_DESC
 } from '../constants';
 
+import orderBy from 'lodash.orderby';
+
 export function comments(state={}, action) {
   switch (action.type) {
     case SORT_VOTESCORE_DESC:
-      return state.sort((actualComment, nextComment) => actualComment.voteScore - nextComment.voteScore);
+      return orderBy(state, 'voteScore', 'desc');
 
     case SORT_VOTESCORE_ASC:
-      return state.sort((actualComment, nextComment) => nextComment.voteScore - actualComment.voteScore);
+      return orderBy(state, 'voteScore', 'asc');
 
     case SORT_TIMESTAMP_DESC:
-      return state.sort((actualComment, nextComment) => new Date(actualComment.timestamp) - new Date(nextComment.timestamp));
+      return orderBy(state, 'timestamp', 'desc');
 
     case SORT_TIMESTAMP_ASC:
-      return state.sort((actualComment, nextComment) => new Date(nextComment.timestamp) - new Date(actualComment.timestamp));
+      return orderBy(state, 'timestamp', 'asc');
 
     case ADD_COMMENT:
       return state.comments.concat(action.comment);

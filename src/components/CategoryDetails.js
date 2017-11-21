@@ -5,13 +5,13 @@ import ListPosts from './ListPosts';
 
 class CategoryDetails extends Component {
   render() {
-    const { posts } = this.props;
-    const urlCategoryName = this.props.match.params.category;
+    const { posts, match } = this.props;
+    const urlCategoryName = match.params.category;
 
     return (
       <div className="b-container">
         <Link to='/' className="container__return fa fa-arrow-left">
-          <spam>Back</spam>  
+          <spam>Back</spam>
         </Link>
         <div className="container__section">
           <div className="category-datails__details">
@@ -21,7 +21,7 @@ class CategoryDetails extends Component {
             <ListPosts posts={posts} category={urlCategoryName} />
           </div>
           <div className="category-datails__add-post">
-            <Link to='/post/create' />
+            <Link to={`${urlCategoryName}/posts/create`} />
           </div>
         </div>
       </div>
