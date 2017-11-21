@@ -9,10 +9,10 @@ class Comment extends Component {
 
     return (
       <div>
-        <p>{'Body: ' + comment.body}</p>
-        <p>{'timestamp: ' + new Date(comment.timestamp).toLocaleString()}</p>
-        <p>{'Vote score: ' + comment.voteScore}</p>
-        <p>{'Author: ' + comment.author}</p>
+        <p>{`Body: ${comment.body}`}</p>
+        <p>{`Timestamp: ${new Date(comment.timestamp).toLocaleString()}`}</p>
+        <p>{`Vote score: ${comment.voteScore}`}</p>
+        <p>{`Author: ${comment.author}`}</p>
         <div className='inner'>
           <Link to={`/comments/${comment.id}/edit`}><button className='fa fa-pencil'></button></Link>
           <button className='fa fa-thumbs-o-up' onClick={()=>updateCommentVotes(comment, 'upVote')}></button>
