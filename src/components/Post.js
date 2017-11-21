@@ -20,18 +20,17 @@ class Post extends Component {
     const { post, comments, isDetail, deletePost, updatePostVotes } = this.props;
 
     const actualPost = isDetail ? this.getPostFromUrl() : post;
-    const commentNumber = comments.length;
 
     return (
       <div className="b-container">
         <div className="post-body">
-          <p>{'Title: ' + actualPost.title}</p>
-          <p>{'Body: ' + actualPost.body}</p>
-          <p>{'timestamp: ' + new Date(actualPost.timestamp).toLocaleString()}</p>
-          <p>{'Vote score: ' + actualPost.voteScore}</p>
-          <p>{'Author: ' + actualPost.author}</p>
+          <p>{`Title: ${actualPost.title}`}</p>
+          <p>{`Body: ${actualPost.body}`}</p>
+          <p>{`Timestamp: ${new Date(actualPost.timestamp).toLocaleString()}`}</p>
+          <p>{`Vote score: ${actualPost.voteScore}`}</p>
+          <p>{`Author: ${actualPost.author}`}</p>
           { isDetail &&
-            <p>{'comments number: ' + commentNumber}</p>
+            <p>{`comments number: ${comments.length}`}</p>
           }
         </div>
         <div className='post-options'>
