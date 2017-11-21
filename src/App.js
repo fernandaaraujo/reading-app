@@ -12,6 +12,7 @@ import EditPost from './components/EditPost';
 import PostDetails from './components/PostDetails';
 import CreateComment from './components/CreateComment';
 import EditComment from './components/EditComment';
+import NotFound from './components/NotFound';
 
 import './App.css';
 
@@ -39,6 +40,7 @@ class App extends Component {
           <Route exact path={'/:category/posts/:postId/edit'} component={EditPost} />
           <Route exact path={'/comments/create'} component={CreateComment} />
           <Route exact path={'/comments/:commentId/edit'} component={EditComment} />
+          <Route component={NotFound}/>
         </Switch>
       </div>
     );
