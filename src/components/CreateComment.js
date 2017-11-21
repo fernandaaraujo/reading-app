@@ -14,7 +14,7 @@ class CreateComment extends Component {
       timestamp: new Date().getTime(),
       parentId: this.props.post.id,
       body: comment.body,
-      author: "User",
+      author: comment.author,
       voteScore: 0
     };
 
@@ -31,6 +31,8 @@ class CreateComment extends Component {
           <form onSubmit={this.addComment} className='create-comment-form'>
             <div className='create-comment-details'>
               <input type='text' name='body' placeholder='body' defaultValue="" />
+              <br/>
+              <input type='text' name='author' placeholder='author' defaultValue="" />
               <br/>
               <div className="comments-save">
                 <button className="save-item">Save</button>
