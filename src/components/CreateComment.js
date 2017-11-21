@@ -7,18 +7,18 @@ import * as api from '../utils/ReadableAPI';
 
 class CreateComment extends Component {
   addComment = (event) => {
+    event.preventDefaul();
     const comment = serializeForm(event.target, { hash: true });
-
-    api.createComment({
+    const newComment = {
       id: Math.random().toString(36).substr(2, 16) + Math.random().toString(36).substr(2, 16),
       timestamp: new Date().getTime(),
       parentId: this.props.post.id,
       body: comment.body,
       author: "User",
       voteScore: 0
-    }).then(comment => {
-      this.props.createComment(comment);
-    });
+    };
+
+    this.props.createComment(newComment);
   }
 
   render() {
