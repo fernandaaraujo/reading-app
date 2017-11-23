@@ -15,19 +15,19 @@ import orderBy from 'lodash.orderby';
 export function comments(state={}, action) {
   switch (action.type) {
     case SORT_VOTESCORE_DESC:
-      return orderBy(state, 'voteScore', 'desc');
-
-    case SORT_VOTESCORE_ASC:
       return orderBy(state, 'voteScore', 'asc');
 
-    case SORT_TIMESTAMP_DESC:
-      return orderBy(state, 'timestamp', 'desc');
+    case SORT_VOTESCORE_ASC:
+      return orderBy(state, 'voteScore', 'desc');
 
-    case SORT_TIMESTAMP_ASC:
+    case SORT_TIMESTAMP_DESC:
       return orderBy(state, 'timestamp', 'asc');
 
+    case SORT_TIMESTAMP_ASC:
+      return orderBy(state, 'timestamp', 'desc');
+
     case ADD_COMMENT:
-      return state.comments.concat(action.comment);
+      return state.concat(action.comment);
 
     case GET_POST_COMMENTS:
       return action.comments.filter(comment => !comment.deleted);
