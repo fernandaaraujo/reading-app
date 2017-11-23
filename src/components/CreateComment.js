@@ -2,23 +2,21 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
 import serializeForm from 'form-serialize';
-import * as actions from '../actions/posts';
-import * as api from '../utils/ReadableAPI';
+import * as actions from '../actions/comments';
 
 class CreateComment extends Component {
   addComment = (event) => {
-    event.preventDefaul();
     const comment = serializeForm(event.target, { hash: true });
     const newComment = {
       id: Math.random().toString(36).substr(2, 16) + Math.random().toString(36).substr(2, 16),
       timestamp: new Date().getTime(),
       parentId: this.props.post.id,
       body: comment.body,
-      author: comment.author,
-      voteScore: 0
+      author: comment.author
     };
 
     this.props.createComment(newComment);
+    this.props.history.push('/');
   }
 
   render() {
