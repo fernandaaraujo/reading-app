@@ -21,7 +21,7 @@ class CategoryDetails extends Component {
             <ListPosts posts={posts} category={urlCategoryName} />
           </div>
           <div className="category-datails__add-post">
-            <Link to={`${urlCategoryName}/posts/create`} />
+            <Link to='/posts/create' />
           </div>
         </div>
       </div>

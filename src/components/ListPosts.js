@@ -33,7 +33,7 @@ class ListPosts extends Component {
   }
 
   render() {
-    const { sortPosts, category } = this.props;
+    const { sortPosts } = this.props;
     const posts = this.getCategoryPosts();
 
     return (
@@ -55,7 +55,7 @@ class ListPosts extends Component {
           </ul>
         </div>
         <div className="posts-create">
-          <Link to=`${category.name}/posts/create`><button className="create-item">Create post</button></Link>
+          <Link to='/posts/create'><button className="create-item">Create post</button></Link>
         </div>
       </div>
     )

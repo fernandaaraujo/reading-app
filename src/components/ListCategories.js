@@ -8,7 +8,7 @@ const ListCategories = ({ categories }) => {
       <ul className="list-categories">
         { categories.map(category => (
           <li className="list-categories__item" key={category.name}>
-            <Link to={`/${category.name}`}>{category.name}</Link>
+            <Link to={`/category/${category.name}`}>{category.name}</Link>
           </li>
         ))}
       </ul>
