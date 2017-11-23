@@ -43,12 +43,6 @@ class CreateComment extends Component {
   }
 };
 
-function mapStateToProps(state) {
-  const { post, comments } = state;
-  return {
-    post,
-    comments
-  };
-};
+const mapStateToProps = ({ post, comments }) => ({ post, comments });
 
 export default withRouter(connect(mapStateToProps, actions)(CreateComment));

@@ -24,18 +24,7 @@ class Comment extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  const { comments } = state;
-  return {
-    comments
-  };
-};
-
-function mapDispatchToProps(dispatch) {
-  return {
-    updateCommentVotes: (comment, option) => dispatch(updateCommentVotes(comment, option)),
-    deleteComment: (comment) => dispatch(deleteComment(comment))
-  }
-}
+const mapStateToProps = ({ comments }) => ({ comments });
+const mapDispatchToProps = { updateCommentVotes, deleteComment };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Comment));

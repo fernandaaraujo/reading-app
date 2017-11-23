@@ -42,12 +42,6 @@ class EditComment extends Component {
   }
 };
 
-function mapStateToProps(state) {
-  const { posts, comments } = state;
-  return {
-    posts,
-    comments
-  };
-};
+const mapStateToProps = ({ posts, comments }) => ({ posts, comments });
 
 export default withRouter(connect(mapStateToProps, actions)(EditComment));

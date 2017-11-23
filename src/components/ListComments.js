@@ -54,12 +54,6 @@ class ListComments extends Component {
   }
 };
 
-function mapStateToProps(state) {
-  const { comments, sortComments } = state;
-  return {
-    comments,
-    sortComments
-  };
-};
+const mapStateToProps = ({ comments, sortComments }) => ({ comment, sortComments });
 
 export default withRouter(connect(mapStateToProps, actions)(ListComments));

@@ -62,12 +62,6 @@ class ListPosts extends Component {
   }
 };
 
-function mapStateToProps(state) {
-  const { posts, sortPosts } = state
-  return {
-    posts,
-    sortPosts
-  }
-}
+const mapStateToProps = ({ posts, sortPosts }) => ({ posts, sortPosts });
 
 export default withRouter(connect(mapStateToProps, actions)(ListPosts));

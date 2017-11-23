@@ -36,12 +36,6 @@ class HomePage extends Component {
   }
 };
 
-function mapStateToProps(state) {
-  const { categories, posts } = state;
-  return {
-    categories,
-    posts
-  };
-};
+const mapStateToProps = ({ categories, posts }) => ({ categories, posts });
 
 export default withRouter(connect(mapStateToProps)(HomePage));

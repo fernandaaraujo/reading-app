@@ -55,11 +55,6 @@ class CreatePost extends Component {
   }
 };
 
-function mapStateToProps(state) {
-  const { categories } = state;
-  return {
-    categories
-  };
-};
+const mapStateToProps = ({ categories }) => ({ categories });
 
 export default withRouter(connect(mapStateToProps, actions)(CreatePost));

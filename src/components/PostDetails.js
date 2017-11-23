@@ -45,12 +45,6 @@ class PostDetails extends Component {
 }
 
 const mapStateToProps = ({ post, posts, comments }) => ({ post, posts, comments });
-
-function mapDispatchToProps(dispatch) {
-  return {
-    getPostComments: (post) => dispatch(getPostComments(post)),
-    getPost: (post) => dispatch(getPost(post))
-  }
-}
+const mapDispatchToProps = { getPostComments, getPost };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(PostDetails));

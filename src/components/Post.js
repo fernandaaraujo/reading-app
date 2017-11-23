@@ -48,20 +48,7 @@ class Post extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  const { posts, comments } = state;
-  return {
-    posts,
-    comments
-  };
-};
-
-function mapDispatchToProps(dispatch) {
-  return {
-    updatePostVotes: (post, option) => dispatch(updatePostVotes(post, option)),
-    deletePost: (post) => dispatch(deletePost(post)),
-    getPostComments: (post) => dispatch(getPostComments(post))
-  }
-}
+const mapStateToProps = ({ posts, comments }) => ({ posts, comments });
+const mapDispatchToProps = { updatePostVotes, deletePost, getPostComments };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Post));
