@@ -66,6 +66,10 @@ input[type=text] {
   padding-top: 1em;
 }
 
+.comments-save {
+  padding-left: 0.5em;
+}
+
 .container__return {
   padding: 1em 0.5em;
   background: #2e3f7c;
