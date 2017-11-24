@@ -12,22 +12,8 @@ import {
   SORT_TIMESTAMP_DESC
 } from '../constants';
 
-import orderBy from 'lodash.orderby';
-
 export function posts(state={}, action){
   switch (action.type) {
-    case SORT_VOTESCORE_DESC:
-      return orderBy(state, 'voteScore', 'asc');
-
-    case SORT_VOTESCORE_ASC:
-      return orderBy(state, 'voteScore', 'desc');
-
-    case SORT_TIMESTAMP_DESC:
-      return orderBy(state, 'timestamp', 'asc');
-
-    case SORT_TIMESTAMP_ASC:
-      return orderBy(state, 'timestamp', 'desc');
-
     case GET_CATEGORIES_POSTS:
     case GET_ALL_POSTS:
       return action.posts.filter(post => !post.deleted);
@@ -47,6 +33,10 @@ export function posts(state={}, action){
 
       return updatedPosts.filter(post => !post.deleted);
 
+    case SORT_VOTESCORE_DESC:
+    case SORT_VOTESCORE_ASC:
+    case SORT_TIMESTAMP_DESC:
+    case SORT_TIMESTAMP_ASC:
     default:
       return state
   }
