@@ -6,8 +6,10 @@ import { getPostComments } from '../actions/comments';
 
 class Post extends Component {
   componentDidMount() {
-    const { post, getPostComments } = this.props;
-    getPostComments(post);
+    const { post, isDetail, getPostComments } = this.props;
+    const actualPost = isDetail ? this.getPostFromUrl() : post;
+
+    getPostComments(actualPost);
   }
 
   getPostFromUrl() {
@@ -30,15 +32,15 @@ class Post extends Component {
           <p>{`Vote score: ${actualPost.voteScore}`}</p>
           <p>{`Author: ${actualPost.author}`}</p>
           <p>{`Category: ${actualPost.category}`}</p>
-          { isDetail &&
+          { !isDetail &&
             <p>{`comments number: ${comments.length}`}</p>
           }
         </div>
         <div className='post-options'>
           { !isDetail &&
-            <Link to={`${actualPost.category}/posts/${actualPost.id}`}><button className="fa fa-search"></button></Link>
+            <Link to={`${actualPost.category}/${actualPost.id}`}><button className="fa fa-search"></button></Link>
           }
-          <Link to={`${actualPost.category}/posts/${actualPost.id}/edit`}><button className='fa fa-pencil'></button></Link>
+          <Link to={`${actualPost.category}/${actualPost.id}/edit`}><button className='fa fa-pencil'></button></Link>
           <button className='fa fa-thumbs-o-up' onClick={()=>updatePostVotes(actualPost, 'upVote')}></button>
           <button className='fa fa-thumbs-o-down' onClick={()=>updatePostVotes(actualPost, 'downVote')}></button>
           <button className='fa fa-trash-o' onClick={()=>deletePost(actualPost)}></button>
