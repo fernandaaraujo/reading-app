@@ -33,9 +33,9 @@ class CreatePost extends Component {
         <div className="container__section">
           <form onSubmit={this.addPost} className='create-post-form'>
             <div className='create-post-details'>
-              <input type='text' name='title' placeholder='title' defaultValue="" />
+              <input type='text' name='title' placeholder='title' defaultValue="" required />
               <br/>
-              <input type='text' name='body' placeholder='body' defaultValue="" />
+              <input type='text' name='body' placeholder='body' defaultValue="" required />
               <br/>
               <select name='category' defaultValue={categories[Object.keys(categories)[0]]}>
                 {

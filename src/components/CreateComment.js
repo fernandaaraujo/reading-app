@@ -28,9 +28,9 @@ class CreateComment extends Component {
         <div className="container__section">
           <form onSubmit={this.addComment} className='create-comment-form'>
             <div className='create-comment-details'>
-              <input type='text' name='body' placeholder='body' defaultValue="" />
+              <input type='text' name='body' placeholder='body' defaultValue="" required />
               <br/>
-              <input type='text' name='author' placeholder='author' defaultValue="" />
+              <input type='text' name='author' placeholder='author' defaultValue="" required />
               <br/>
               <div className="comments-save">
                 <button className="save-item">Save</button>

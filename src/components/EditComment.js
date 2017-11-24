@@ -29,7 +29,7 @@ class EditComment extends Component {
         <div className="container__section">
           <form onSubmit={this.changeComment} className='edit-comment-form'>
             <div className='edit-comment-details'>
-              <input type='text' name='body' placeholder='body' defaultValue={comment && comment.body}/>
+              <input type='text' name='body' placeholder='body' defaultValue={comment && comment.body} required />
               <br/>
               <div className="comments-save">
                 <button className="save-item">Save</button>
@@ -42,6 +42,6 @@ class EditComment extends Component {
   }
 };
 
-const mapStateToProps = ({ posts, comments }) => ({ posts, comments });
+const mapStateToProps = ({ post, comments }) => ({ post, comments });
 
 export default withRouter(connect(mapStateToProps, actions)(EditComment));

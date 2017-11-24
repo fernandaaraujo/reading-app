@@ -32,9 +32,9 @@ class EditPost extends Component {
         <div className="container__section">
           <form onSubmit={this.changePost} className='edit-post-form'>
             <div className='edit-post-details'>
-              <input type='text' name='title' placeholder='title' defaultValue={post && post.title}/>
+              <input type='text' name='title' placeholder='title' defaultValue={post && post.title} required />
               <br/>
-              <input type='text' name='body' placeholder='body' defaultValue={post && post.body}/>
+              <input type='text' name='body' placeholder='body' defaultValue={post && post.body} required />
               <br/>
               <select name='category' defaultValue={post ? post.category : Object.keys(categories)[0] }>
                 {
