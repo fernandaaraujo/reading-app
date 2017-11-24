@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../actions/comments';
+import { orderData } from '../utils/order';
 import Comment from './Comment';
 
 class ListComments extends Component {
@@ -54,6 +55,11 @@ class ListComments extends Component {
   }
 };
 
-const mapStateToProps = ({ comments, sortComments }) => ({ comment, sortComments });
+const mapStateToProps = ({ comments, sortComments }) => {
+  return {
+    comments: orderData(comments, sortComments.sort),
+    sortComments
+  }
+};
 
 export default withRouter(connect(mapStateToProps, actions)(ListComments));

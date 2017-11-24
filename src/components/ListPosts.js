@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../actions/posts';
+import { orderData } from '../utils/order';
 import Post from './Post';
 
 class ListPosts extends Component {
@@ -62,6 +63,11 @@ class ListPosts extends Component {
   }
 };
 
-const mapStateToProps = ({ posts, sortPosts }) => ({ posts, sortPosts });
+const mapStateToProps = ({ posts, sortPosts }) => {
+  return {
+    posts: orderData(posts, sortPosts.sort),
+    sortPosts
+  }
+};
 
 export default withRouter(connect(mapStateToProps, actions)(ListPosts));
