@@ -10,8 +10,6 @@
   SORT_TIMESTAMP_DESC
 } from '../constants';
 
-import orderBy from 'lodash.orderby';
-
 export function comments(state={}, action) {
   switch (action.type) {
     case ADD_COMMENT:
