@@ -15,7 +15,7 @@ class Post extends Component {
   getPostFromUrl() {
     const { posts } = this.props;
     const postId = this.props.match.params.postId;
-    return posts.filter(post => post.id === postId)[0];
+    return posts.find(post => post.id === postId);
   }
 
   render() {
@@ -32,7 +32,7 @@ class Post extends Component {
           <p>{`Vote score: ${actualPost.voteScore}`}</p>
           <p>{`Author: ${actualPost.author}`}</p>
           <p>{`Category: ${actualPost.category}`}</p>
-          { !isDetail &&
+          { isDetail &&
             <p>{`comments number: ${comments.length}`}</p>
           }
         </div>

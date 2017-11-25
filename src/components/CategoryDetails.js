@@ -4,6 +4,20 @@ import { connect } from 'react-redux';
 import ListPosts from './ListPosts';
 
 class CategoryDetails extends Component {
+  componentDidMount() {
+    if (!this.isValidCategory()) {
+      this.props.history.push('/page/not-found');      
+    }
+  }
+
+  isValidCategory() {
+    const { categories, match } = this.props;    
+    const urlCategoryName = match.params.category;
+    
+    return categories.length > 0 &&
+            categories.some(category => category.name === urlCategoryName);
+  }
+
   render() {
     const { posts, match } = this.props;
     const urlCategoryName = match.params.category;
