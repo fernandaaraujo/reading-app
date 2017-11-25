@@ -34,13 +34,13 @@ class App extends Component {
               posts={posts}
             />
           )} />
+          <Route exact path={'/page/not-found'} component={NotFound} />          
           <Route exact path={'/:category'} component={CategoryDetails} />
           <Route exact path={'/posts/create'} component={CreatePost} />
           <Route exact path={'/:category/:postId'} component={PostDetails} />
           <Route exact path={'/:category/:postId/edit'} component={EditPost} />
           <Route exact path={'/comments/create'} component={CreateComment} />
           <Route exact path={'/comments/:commentId/edit'} component={EditComment} />
-          <Route exact path={'/page/not-found'} component={NotFound} />
           <Route component={NotFound}/>
         </Switch>
       </div>
